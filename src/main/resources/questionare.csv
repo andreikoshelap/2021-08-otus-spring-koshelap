@@ -1,0 +1,38 @@
+no;type;question;A;B;C;D;E;F;correct
+1;1;"Given:
+class A extends B {
+C tail;
+}
+Which is true?";A HAS-A B and A HAS-A C;A HAS-A B and A IS-A C;A IS-A B and A HAS-A C;A IS-A B and A IS-A C;B IS-A A and A-HAS-A C;B IS-A A and A IS-A C;C
+2;2;Which statements are true? (Choose all that apply.);Method delegation relies on IS-A relationships;Method forwarding relies on HAS-A relationships;The DAO pattern limits you to one instance of the DAO object;The singleton pattern relies on IS-A relationships;To use object composition, classes must be final;;B
+3;1;"Given:
+public class F {
+private static final F f = new F();
+public static F c() {
+return f;
+}
+public void update(F a) { }
+public void delete(F a) { }
+}
+Which design pattern or principle is implemented?";Coupling;DAO;Factory;IS-A;Object composition;Singleton;F
+4;1;"Given:
+public class E {
+private D d;
+public void m() {
+d.m();
+}
+public static E getInstance() {
+return new E();
+}
+}
+class D {
+public void m() {}
+}
+Which design pattern or principle is implemented?";DAO;Factory;IS-A;Object composition;Singleton;;D
+5;1;"Given:
+class A {}
+abstract class G {
+A m() { return n(); }
+abstract A n() ;
+}
+Which design pattern or principle is implemented?";DAO;Factory;IS-A;Object composition;Singleton;;B
