@@ -4,31 +4,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 import ru.otus.spring.dao.DataMapper;
 import ru.otus.spring.domain.QuestionWithAnswers;
 import ru.otus.spring.service.Parser;
-import ru.otus.spring.tools.InputOutputService;
-import ru.otus.spring.ui.Quiz;
-import ru.otus.spring.ui.impl.QuizImpl;
 
 @Component
 public class CsvDataMapperImpl implements DataMapper {
 
     private Parser parser;
-    private MessageSource msg;
-    private InputOutputService ioService;
 
-    public CsvDataMapperImpl(Parser parser, MessageSource msg, InputOutputService ioService) {
+    public CsvDataMapperImpl(Parser parser) {
         this.parser = parser;
-        this.msg = msg;
-        this.ioService = ioService;
     }
 
     @Override
-    public Quiz dataMapping() throws IOException {
+    public List<QuestionWithAnswers> dataMapping() throws IOException {
         List<QuestionWithAnswers> rows = new ArrayList<>();
         parser.getParsedCsv().forEach( record -> {
             QuestionWithAnswers row = new QuestionWithAnswers();
@@ -44,7 +36,7 @@ public class CsvDataMapperImpl implements DataMapper {
             row.setCorrectAnswer(record.get("correct"));
             rows.add(row);
         });
-        return new QuizImpl(rows, msg, ioService);
+        return rows;
     }
 
 }
