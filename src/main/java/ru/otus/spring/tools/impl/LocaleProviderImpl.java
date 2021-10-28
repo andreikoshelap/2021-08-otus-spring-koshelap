@@ -1,5 +1,6 @@
 package ru.otus.spring.tools.impl;
 
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Set;
 
@@ -61,7 +62,8 @@ public class LocaleProviderImpl implements LocaleProvider {
     }
 
     @Override
-    public void getLocalizedString(String s) {
+    public void getLocalizedString(String s, String... args) {
         ioService.out(msg.getMessage(s, new String[]{ ANSI_BLUE, ANSI_RESET }, locale));
+        Arrays.stream(args).forEach(ioService::out);
     }
 }

@@ -1,10 +1,11 @@
 package ru.otus.spring.dao;
 
 import java.io.IOException;
+import java.util.List;
 
-import ru.otus.spring.ui.Quiz;
+import ru.otus.spring.domain.QuestionWithAnswers;
 
 public interface DataMapper {
 
-    Quiz dataMapping() throws IOException;
+    List<QuestionWithAnswers> dataMapping() throws IOException;
 }

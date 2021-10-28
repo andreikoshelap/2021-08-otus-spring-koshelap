@@ -10,5 +10,5 @@ public interface LocaleProvider {
 
     void possibleLocales(Applicant applicant);
 
-    void getLocalizedString(String s);
+    void getLocalizedString(String s, String... args);
 }
